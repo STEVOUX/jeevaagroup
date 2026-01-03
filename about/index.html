@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>About Us | Jeevaa Group</title>
+<title>About Jeevaa Group</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@ const ASSETS = {
 :root{
   --green:#1e7f4f;
   --green-dark:#145c3a;
-  --green-light:#e9f5ee;
+  --green-soft:#e9f5ee;
   --text:#1c1c1c;
   --muted:#666;
 }
@@ -25,35 +25,29 @@ const ASSETS = {
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
 body{background:#fff;color:var(--text);line-height:1.6}
 
-/* ===== HEADER ===== */
+/* HEADER */
 header{
-  position:sticky;
-  top:0;
+  position:sticky;top:0;
   background:#fff;
   border-bottom:1px solid #eee;
   z-index:1000;
 }
 .nav{
-  max-width:1200px;
-  margin:auto;
+  max-width:1200px;margin:auto;
   padding:14px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  display:flex;align-items:center;justify-content:space-between;
 }
 .logo{height:42px}
 .nav-links a{
   margin-left:26px;
   font-weight:500;
-  color:#000;
-  text-decoration:none;
+  color:#000;text-decoration:none;
 }
 .menu-btn{display:none;font-size:26px;cursor:pointer}
 
-/* ===== SIDEBAR ===== */
+/* SIDEBAR */
 .sidebar{
-  position:fixed;
-  top:0;right:-100%;
+  position:fixed;top:0;right:-100%;
   width:260px;height:100%;
   background:#fff;
   box-shadow:-4px 0 20px rgba(0,0,0,.12);
@@ -63,86 +57,112 @@ header{
 .sidebar.active{right:0}
 .sidebar a{
   display:block;padding:14px 0;
-  color:#000;text-decoration:none;
   border-bottom:1px solid #eee;
+  text-decoration:none;color:#000;
 }
 .close-btn{font-size:24px;margin-bottom:20px;cursor:pointer}
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
   background:var(--green);
   color:#fff;
-}
-.hero-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:70px 20px 80px;
-}
-.hero h1{font-size:40px}
-.hero p{margin-top:14px;max-width:700px}
-
-/* ===== SECTIONS ===== */
-section{padding:80px 20px}
-.container{max-width:1200px;margin:auto}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-
-.card{
-  background:#fff;
-  padding:32px;
-  border-radius:12px;
-  box-shadow:0 8px 26px rgba(0,0,0,.06);
-}
-.card h3{color:var(--green);margin-bottom:10px}
-
-/* ===== LIST ===== */
-.list li{
-  margin-bottom:10px;
-  padding-left:20px;
   position:relative;
 }
-.list li::before{
-  content:"✔";
-  color:var(--green);
-  position:absolute;
-  left:0;
+.hero-inner{
+  max-width:1200px;margin:auto;
+  padding:60px 20px 70px;
+}
+.hero h1{font-size:38px}
+.hero p{margin-top:12px;max-width:680px}
+
+/* SECTION */
+section{padding:60px 20px}
+.container{max-width:1200px;margin:auto}
+
+/* SPLIT */
+.split{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+}
+@media(max-width:900px){
+  .split{grid-template-columns:1fr}
 }
 
-/* ===== DOWNLOADS ===== */
+/* STORY */
+.story{
+  padding-left:22px;
+  border-left:4px solid var(--green);
+}
+.story h3{color:var(--green);margin-bottom:10px}
+
+/* HIGHLIGHTS */
+.highlights{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:24px;
+}
+.highlight{
+  background:#fff;
+  padding:26px;
+  border-radius:12px;
+  box-shadow:0 8px 26px rgba(0,0,0,.06);
+  transition:.25s;
+}
+.highlight:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 40px rgba(0,0,0,.12);
+}
+.highlight h4{color:var(--green);margin-bottom:8px}
+
+/* DIVISIONS */
+.divisions{
+  background:var(--green-soft);
+}
+.div-card{
+  background:#fff;
+  padding:28px;
+  border-radius:12px;
+  box-shadow:0 8px 26px rgba(0,0,0,.06);
+  transition:.25s;
+}
+.div-card:hover{transform:translateY(-6px)}
+.div-card h3{color:var(--green)}
+
+/* DOWNLOAD */
 .download{
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   padding:16px 20px;
-  border:1px solid #eee;
-  border-radius:8px;
-  margin-bottom:12px;
+  border-radius:10px;
+  border:1px solid #e5e5e5;
+  margin-bottom:14px;
 }
 .download a{
-  color:var(--green);
   text-decoration:none;
+  color:var(--green);
   font-weight:600;
 }
 
-/* ===== CONTACT ===== */
+/* CONTACT */
 .contact{
-  background:var(--green-light);
+  background:var(--green-soft);
 }
-.contact p{margin-bottom:6px}
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer{
   background:#0c2e23;
   color:#fff;
   padding:50px 20px;
 }
-footer p{opacity:.85}
 
-/* ===== MOBILE ===== */
+/* MOBILE */
 @media(max-width:768px){
   .nav-links{display:none}
   .menu-btn{display:block}
@@ -155,7 +175,7 @@ footer p{opacity:.85}
 
 <header>
   <div class="nav">
-    <img id="logo" class="logo" alt="Jeevaa Group Logo">
+    <img id="logo" class="logo">
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -176,80 +196,66 @@ footer p{opacity:.85}
   <a href="#">Careers</a>
 </div>
 
-<!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero-inner">
     <h1>About Jeevaa Group</h1>
     <p>
-      Jeevaa Group is a trusted leader in rendering technology and poultry by-product
-      processing, delivering reliable solutions across India.
+      Building India’s rendering and protein infrastructure through engineering,
+      consistency, and long-term partnerships.
     </p>
   </div>
 </section>
 
-<!-- ===== ABOUT ===== -->
 <section>
-  <div class="container grid">
-    <div class="card">
-      <h3>Who We Are</h3>
+  <div class="container split">
+    <div class="story">
+      <h3>Our Story</h3>
       <p>
-        Established in 2010, Jeevaa Group provides complete solutions for rendering plants
-        and feed supplements. We are among the largest rendering machinery manufacturers
-        in South India, with more than 27 plants installed across the country.
+        Founded in 2010, Jeevaa Group emerged with a clear vision: to modernize
+        rendering technology in India. Today, we stand among South India’s largest
+        rendering machinery manufacturers with over 27 plants installed nationwide.
       </p>
     </div>
-    <div class="card">
-      <h3>Our Strength</h3>
-      <ul class="list">
-        <li>In-house Research & Development</li>
-        <li>High-tech rendering process</li>
-        <li>Customized plant solutions</li>
-        <li>Energy-efficient systems</li>
-        <li>Strong after-sales support</li>
-      </ul>
+
+    <div class="highlights">
+      <div class="highlight">
+        <h4>In-house R&D</h4>
+        <p>Engineering innovation driven by real operational data.</p>
+      </div>
+      <div class="highlight">
+        <h4>Energy Efficient</h4>
+        <p>Designed to reduce operating costs sustainably.</p>
+      </div>
+      <div class="highlight">
+        <h4>Custom Solutions</h4>
+        <p>Plants tailored for each client’s scale and needs.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== DIVISIONS ===== -->
-<section>
-  <div class="container grid">
-    <div class="card">
+<section class="divisions">
+  <div class="container highlights">
+    <div class="div-card">
       <h3>Jeevaa Techmax</h3>
       <p>
-        Specializes in rendering plant design, manufacturing, installation, and
+        End-to-end rendering plant design, manufacturing, installation, and
         commissioning with advanced monitoring systems.
       </p>
     </div>
-    <div class="card">
+    <div class="div-card">
       <h3>Jeevaa Promax</h3>
       <p>
-        Produces high-quality poultry by-products such as protein meals and oils
-        for the animal feed industry.
+        High-protein poultry by-products including protein meals and oils for
+        the animal feed industry.
       </p>
     </div>
   </div>
 </section>
 
-<!-- ===== QUALITY ===== -->
 <section>
   <div class="container">
-    <div class="card">
-      <h3>Quality & Certifications</h3>
-      <ul class="list">
-        <li>Strict quality control at every stage</li>
-        <li>Consistent product standards</li>
-        <li>Industry-compliant manufacturing</li>
-        <li>Continuous process improvement</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ===== DOWNLOADS ===== -->
-<section>
-  <div class="container">
-    <h3 style="color:var(--green);margin-bottom:20px">Downloads</h3>
+    <h3 style="color:var(--green);margin-bottom:16px">Downloads</h3>
     <div class="download">
       <span>Company Brochure</span>
       <a href="#">Download PDF</a>
@@ -261,18 +267,19 @@ footer p{opacity:.85}
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
 <section class="contact">
-  <div class="container grid">
+  <div class="container contact-grid">
     <div>
-      <h3>Jeevaa Techmax Pvt. Ltd</h3>
+      <h4>Jeevaa Techmax Pvt. Ltd</h4>
       <p>Thrissur, Kerala</p>
-      <p>Email: jeevaatechmax2021@gmail.com</p>
     </div>
     <div>
-      <h3>Jeevaa Promax Pvt. Ltd</h3>
+      <h4>Jeevaa Promax Pvt. Ltd</h4>
       <p>Kasaragod, Kerala</p>
-      <p>Email: jeevaapromax2021@gmail.com</p>
+    </div>
+    <div>
+      <h4>Careers</h4>
+      <p>careers@jeevaagroup.com</p>
     </div>
   </div>
 </section>
