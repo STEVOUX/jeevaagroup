@@ -10,86 +10,116 @@
 <style>
 :root{
   --green:#19c37d;
-  --dark:#0b1511;
-  --overlay:rgba(5,15,10,.75);
+  --dark:#050a07;
+  --card:#0e1c16;
+  --overlay:rgba(5,15,10,.78);
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   font-family:'Inter',sans-serif;
-  background:#050a07;
+  background:var(--dark);
   color:#fff;
   overflow-x:hidden;
 }
 
-/* ===== HEADER ===== */
+/* ================= HEADER ================= */
 header{
   position:fixed;
   top:0;left:0;
   width:100%;
   z-index:100;
-  background:rgba(0,0,0,.65);
+  background:rgba(0,0,0,.6);
   backdrop-filter:blur(12px);
 }
 .nav{
   max-width:1300px;
   margin:auto;
-  padding:16px 30px;
+  padding:16px 24px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 }
-.nav img{height:46px}
-
+.logo{
+  height:44px;
+}
 .menu{
   display:flex;
   gap:30px;
 }
-.menu li{
-  list-style:none;
-  position:relative;
-}
+.menu li{list-style:none;position:relative}
 .menu a{
   text-decoration:none;
   color:#fff;
-  font-weight:500;
   opacity:.85;
 }
 .menu a:hover{opacity:1}
 
-/* ===== DROPDOWN (FIXED) ===== */
-.has-dropdown{position:relative}
-
+/* ================= DROPDOWN (DESKTOP) ================= */
 .dropdown{
   position:absolute;
-  top:55px;
+  top:52px;
   left:0;
   background:#0e1d16;
-  padding:18px;
-  border-radius:12px;
+  padding:16px;
+  border-radius:14px;
   min-width:240px;
   opacity:0;
   visibility:hidden;
-  transform:translateY(10px);
+  transform:translateY(12px);
   transition:.25s ease;
 }
 .dropdown a{
   display:block;
   padding:12px;
-  border-radius:8px;
+  border-radius:10px;
 }
 .dropdown a:hover{
   background:#162a20;
   color:var(--green);
 }
-.dropdown.show{
+.has-dropdown:hover .dropdown{
   opacity:1;
   visibility:visible;
-  transform:translateY(0);
+  transform:none;
 }
 
-/* ===== HERO ===== */
+/* ================= MOBILE HEADER ================= */
+.hamburger{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* ================= MOBILE SIDEBAR ================= */
+.sidebar{
+  position:fixed;
+  top:0;left:-100%;
+  width:82%;
+  height:100vh;
+  background:#050a07;
+  z-index:200;
+  padding:30px;
+  transition:.35s ease;
+}
+.sidebar.open{left:0}
+.sidebar img{height:46px;margin-bottom:40px}
+.sidebar a{
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  padding:14px 0;
+  font-size:18px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.sidebar .sub{
+  padding-left:12px;
+  font-size:16px;
+  opacity:.85;
+}
+
+/* ================= HERO ================= */
 .hero{
   height:100vh;
   position:relative;
@@ -118,41 +148,32 @@ header{
   z-index:2;
   max-width:900px;
   padding:0 60px;
-  animation:fadeUp 1.4s ease forwards;
 }
 .hero h1{
   font-size:64px;
   font-weight:700;
-  margin-bottom:20px;
+  line-height:1.1;
 }
 .hero p{
-  max-width:620px;
-  line-height:1.7;
+  margin-top:22px;
+  max-width:600px;
+  line-height:1.8;
   opacity:.85;
 }
 .hero button{
-  margin-top:30px;
-  padding:14px 34px;
+  margin-top:34px;
+  padding:14px 36px;
   border-radius:30px;
   border:1px solid var(--green);
   background:transparent;
   color:#fff;
-  cursor:pointer;
-}
-.hero button:hover{
-  background:var(--green);
-  color:#000;
+  font-size:16px;
 }
 
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px)}
-  to{opacity:1;transform:none}
-}
-
-/* ===== STATS ===== */
+/* ================= STATS ================= */
 .stats{
   background:#0e1c16;
-  padding:120px 40px;
+  padding:120px 30px;
 }
 .stats-grid{
   max-width:1200px;
@@ -166,12 +187,11 @@ header{
   font-size:56px;
   color:var(--green);
 }
-.stat p{opacity:.8}
+.stat p{opacity:.75}
 
-/* ===== BUSINESS ===== */
+/* ================= BUSINESS ================= */
 .business{
-  padding:120px 40px;
-  background:#060d0a;
+  padding:120px 30px;
 }
 .business-grid{
   max-width:1200px;
@@ -181,45 +201,68 @@ header{
   gap:40px;
 }
 .card{
-  background:#0e1c16;
-  padding:40px;
-  border-radius:18px;
+  background:var(--card);
+  padding:44px;
+  border-radius:20px;
   transition:.4s;
 }
 .card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 30px 80px rgba(0,0,0,.5);
+  transform:translateY(-10px);
+  box-shadow:0 40px 90px rgba(0,0,0,.6);
 }
 .card h3{
   color:var(--green);
-  margin-bottom:15px;
+  margin-bottom:16px;
 }
 
-/* ===== FOOTER ===== */
+/* ================= FOOTER ================= */
 footer{
-  padding:40px;
+  padding:50px 20px;
   text-align:center;
-  background:#040806;
-  opacity:.7;
+  opacity:.6;
 }
 
-/* ===== MOBILE ===== */
+/* ================= MOBILE FIXES ================= */
 @media(max-width:900px){
-  .hero h1{font-size:40px}
-  .stats-grid,.business-grid{grid-template-columns:1fr}
   .menu{display:none}
+  .hamburger{display:block}
+  .hero-content{
+    padding:0 26px;
+  }
+  .hero h1{
+    font-size:42px;
+    line-height:1.15;
+  }
+  .hero p{
+    font-size:16px;
+  }
+  .stats-grid,
+  .business-grid{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <img src="https://res.cloudinary.com/dyiztuod3/image/upload/v1767712617/Jeevaagroup_sksa0v.png">
+  <a href="#">About Us</a>
+  <a href="#">Business</a>
+  <a class="sub" href="#">Jeevaa Techmax</a>
+  <a class="sub" href="#">Jeevaa Promax</a>
+  <a href="#">Newsroom</a>
+  <a href="#">Contact Us</a>
+</div>
+
 <header>
   <div class="nav">
-    <img src="https://res.cloudinary.com/dyiztuod3/image/upload/v1767712617/Jeevaagroup_sksa0v.png">
+    <img class="logo" src="https://res.cloudinary.com/dyiztuod3/image/upload/v1767712617/Jeevaagroup_sksa0v.png">
+    <div class="hamburger" onclick="toggleSidebar()">☰</div>
     <ul class="menu">
       <li><a href="#">About Us</a></li>
-
       <li class="has-dropdown">
         <a href="#">Business</a>
         <div class="dropdown">
@@ -227,7 +270,6 @@ footer{
           <a href="#">Jeevaa Promax</a>
         </div>
       </li>
-
       <li><a href="#">Newsroom</a></li>
       <li><a href="#">Contact Us</a></li>
     </ul>
@@ -236,14 +278,14 @@ footer{
 
 <section class="hero">
   <div class="slider">
-    <img src="https://res.cloudinary.com/dyiztuod3/image/upload/v1767441848/WhatsApp_Image_2026-01-03_at_5.25.43_PM_1_lzpcbv.jpg" class="active">
+    <img class="active" src="https://res.cloudinary.com/dyiztuod3/image/upload/v1767441848/WhatsApp_Image_2026-01-03_at_5.25.43_PM_1_lzpcbv.jpg">
     <img src="https://res.cloudinary.com/dyiztuod3/image/upload/v1767441818/WhatsApp_Image_2026-01-03_at_5.25.43_PM_2_ufb7mv.jpg">
     <img src="https://res.cloudinary.com/dyiztuod3/image/upload/v1767441809/techmax_blue_2_gdgmv8.jpg">
     <img src="https://res.cloudinary.com/dyiztuod3/image/upload/v1767441804/promax2_rsvazo.jpg">
   </div>
 
   <div class="hero-content">
-    <h1>JEEVAA GROUP</h1>
+    <h1>JEEVAA<br>GROUP</h1>
     <p>Engineering sustainable rendering and protein solutions powering industries across India.</p>
     <button>About Us</button>
   </div>
@@ -273,7 +315,7 @@ footer{
 <footer>© Jeevaa Group</footer>
 
 <script>
-// HERO SLIDER
+/* SLIDER */
 const slides=document.querySelectorAll('.slider img');
 let i=0;
 setInterval(()=>{
@@ -282,40 +324,28 @@ setInterval(()=>{
   slides[i].classList.add('active');
 },4000);
 
-// COUNTER
+/* COUNTER */
 const counters=document.querySelectorAll('[data-num]');
-let started=false;
+let done=false;
 window.addEventListener('scroll',()=>{
-  const stats=document.querySelector('.stats').offsetTop-window.innerHeight;
-  if(window.scrollY>stats && !started){
+  const pos=document.querySelector('.stats').offsetTop-window.innerHeight;
+  if(scrollY>pos && !done){
     counters.forEach(el=>{
-      let target=+el.dataset.num;
-      let n=0;
-      let inc=Math.ceil(target/60);
+      let target=+el.dataset.num,n=0;
       let t=setInterval(()=>{
-        n+=inc;
+        n+=Math.ceil(target/60);
         if(n>=target){el.textContent=target;clearInterval(t)}
         else el.textContent=n;
       },25);
     });
-    started=true;
+    done=true;
   }
 });
 
-// DROPDOWN FIX
-const dropdownParent=document.querySelector('.has-dropdown');
-const dropdown=dropdownParent.querySelector('.dropdown');
-let timeout;
-
-dropdownParent.addEventListener('mouseenter',()=>{
-  clearTimeout(timeout);
-  dropdown.classList.add('show');
-});
-dropdownParent.addEventListener('mouseleave',()=>{
-  timeout=setTimeout(()=>{
-    dropdown.classList.remove('show');
-  },200);
-});
+/* SIDEBAR */
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+}
 </script>
 
 </body>
